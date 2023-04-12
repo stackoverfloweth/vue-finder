@@ -1,7 +1,7 @@
 import { SearchResult, RepositorySearch, Organization, UserSearch } from "../_types/gitHub.ts";
 
 const baseUrl = "https://api.github.com"
-const token = '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'// Deno.env.get("GITHUB_TOKEN") 
+const token = Deno.env.get("GITHUB_TOKEN") 
 
 export async function searchVueUsers(): Promise<SearchResult<UserSearch>> {
   const response = await fetch(`${baseUrl}/search/users?q=language:vue+followers:>5&sort=joined&per_page=10`, {
